@@ -6,7 +6,7 @@
 [Our Discord](https://discord.gg/tAggQPF7Vm)
 
 Authors :
-- Pixellgame (manager)
-- Fime (Best Dev)
-- Matthieu (Co Dev)
-- khukuriknife (Designer Apprentice)
+- **[Pixellgame]**() (Manager)
+- **[Fime]** (Best Dev)
+- **[Matthieu]** (Co Dev)
+- **[khukuriknife]** (Designer Apprentice)
