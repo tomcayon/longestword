@@ -1,0 +1,22 @@
+from random import*
+class LongestWord() :
+    def __init__(self):
+        self.setting_letters()
+    def setting_letters(self):
+        self.voyelles=["a","e","i","o","u","y"]
+        self.consonnes=["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","z"]
+        self.tirage=[]
+        for i in range (9):
+            self.instant_letter=str(input("Souhaitez vous une voyelle ou une consonne?"))
+            if self.instant_letter=="voyelle":
+                self.tirage.append(self.voyelles[randint(0,5)])
+            elif self.instant_letter=="consonne":
+                self.tirage.append(self.consonnes[randint(0,19)])
+            else:
+                print("Vous vous êtes trompé, écrivez ''voyelle' si vous voulez une voyelle et écrivez 'consonne'si vous voulez une consonne, recommencez :")
+                i-=1
+
+        print("Voici le tirage des lettres :",self.tirage)
+
+
+LongestWord()
