@@ -2,3 +2,5 @@
 
 - There is a presentation webpage
 - There is a python program
+
+[Our Discord](https://discord.gg/tAggQPF7Vm)
