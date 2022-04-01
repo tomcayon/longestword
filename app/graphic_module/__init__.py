@@ -11,3 +11,8 @@ class AppWindow():
     def init_window(self):
         self.window = tk.Tk()
         self.window.title("Longest Word")
+        self.window.geometry("1024x600")
+
+
+if __name__ == "__main__":
+    test = AppWindow()
