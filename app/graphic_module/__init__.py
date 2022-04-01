@@ -2,16 +2,14 @@
 Graphic Module
 """
 
-import tkinter as tk
+import pygame
+
+DIM = W,H = 1024,600
 
 class AppWindow():
     def __init__(self):
-        self.init_window()
-
-    def init_window(self):
-        self.window = tk.Tk()
-        self.window.title("Longest Word")
-        self.window.geometry("1024x600")
+        pygame.init()
+        self.screen = pygame.display.set_mode(DIM)
 
 
 if __name__ == "__main__":
