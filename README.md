@@ -9,4 +9,4 @@ Authors :
 - [**Pixellgame**](https://github.com/Pixellgame) (Manager)
 - [**Fime**] (Best Dev)
 - [**Matthieu**] (Co Dev)
-- **[khukuriknife]** (Designer Apprentice)
+- [**khukuriknife**] (Designer Apprentice)
