@@ -18,8 +18,12 @@ class DicoCompressor() :
         words_files = {}
         for n in range(self.MIN_LENGTH,self.MAX_LENGTH+1,1):
             # fill words files objects dictionary
-            words_files [n] = open(path + "%i.txt"%(n), mode)
-            words_files [n].truncate(0)
+            try :
+                words_files [n] = open(path + "%i.txt"%(n), mode)
+                words_files [n].truncate(0)
+            except:
+                raise(FileExistsError,
+                "error openning this file : %i.txt"%(n))
 
 
         self.word_list=dico.read().split("\n")
