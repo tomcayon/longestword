@@ -35,16 +35,7 @@ class WordFinder() :
         for word in possible_words:
             if len(possible_words[0])!=len(word):
                 remove(world)
-
-
-
-
-
-
-
-
-
-
-
+                
+                
 if __name__=="__main__":
    WordFinder().find_word("dico_sorted/","mreach")
