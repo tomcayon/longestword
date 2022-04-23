@@ -14,23 +14,23 @@ class WordFinder() :
                 raise(FileExistsError,
                 "error openning this file : %i.txt"%(n))
 
-        letters = set(letters)
+        letters = set(letters.lower() )
         possible_words=[]
         order=list(range(self.MAX_LENGTH,self.MIN_LENGTH,-1))
-        
+
         for n in order:
 
             for word in words_files[n].readlines():
-                word = set(word[:-1])
-                intersection=set_dissociate_letters.intersection(set_sliced_word)
-                if len(intersection)==number:
+
+                sliced_word = set(word[:-1])
+
+                intersection=letters.intersection(sliced_word)
+                if len(intersection)==n:
                     possible_words.append(word)
-        
-        #print(possible_words)
 
         for word in possible_words:
             if len(possible_words[0])!=len(word):
                 remove(world)
 
 if __name__=="__main__":
-   WordFinder().find_word("../dico/","mreach")
+   WordFinder().find_word("../dico/","mreacheic")
