@@ -16,11 +16,13 @@ STRINGS = "strings.txt"
 HEADER_STYLE = ("Times New Roman",20)
 PAD = 5
 
+APP_STRINGS = AppStings("fr")
+APP_COLOR = AppColors()
+
 class AppStings():
     def __init__(self,lang):
         self.language = lang
         self.string = eval(open(STRINGS,'r').read())
-
 
     def get(self,name):
         return self.string[name][self.language]
@@ -39,8 +41,6 @@ class AppWindow():
 
         self.window.tk.call("source", os.getcwd()+"/themes/Azure-ttk-theme-main/"+"azure.tcl")
         self.window.tk.call("set_theme", "dark")
-
-        #self.window.tk.call("source",os.getcwd()+"/themes/Forest-ttk-theme-master/forest-light.tcl")
 
         self.init_window()
 
@@ -67,10 +67,12 @@ class AppWindow():
     def init_header(self):
         head = self.frame_header
 
+        #print(APP_COLOR.get("accent-light"))
+
         self.frame_header_content = {
 
-                "title" : ttk.Label(head,text=app_strings.get("title")),
-                "author" : ttk.Label(head,text=app_strings.get("author"))
+                "title" : ttk.Label(head,text=APP_STRINGS.get("title"),foreground=APP_COLOR.get("accent-light")),
+                "author" : ttk.Label(head,text=APP_STRINGS.get("author"))
 
                 }
 
@@ -79,8 +81,8 @@ class AppWindow():
             self.frame_header_content [element].grid(
                     row = 0,
                     column = i,
-                    padx = PADDING,
-                    pady = PADDING)
+                    padx = PAD,
+                    pady = PAD)
 
     def init_content(self):
         self.game_display.init_components()
@@ -102,26 +104,34 @@ class GameDisplay():
         self.word_entry = tk.Frame(parent)
         self.solution_displayer = ttk.Frame(parent)
 
+        self.init_selector()
         self.init_entry()
+        self.intt_displayer()
 
         self.letter_selector.pack()
         self.word_entry.pack()
         self.solution_displayer.pack()
+
+    def init_selector(self):
+        pass
 
     def init_entry(self):
         self.enterred_text = tk.StringVar()
 
         self.word_entry.config()
 
-        self.word_entry_label = ttk.Label(self.word_entry,text=app_strings.get("word_entry_label"))
+        self.word_entry_label = ttk.Label(self.word_entry,text=APP_STRINGS.get("word_entry_label"))
         self.word_entry_field = ttk.Entry(
                 self.word_entry,
                 textvariable=self.enterred_text)
-        self.word_entry_button= ttk.Button(self.word_entry,text=app_strings.get("word_entry_submit"),command=self.submit_word)
+        self.word_entry_button= ttk.Button(self.word_entry,text=APP_STRINGS.get("word_entry_submit"),command=self.submit_word)
 
         self.word_entry_label.pack(pady=PAD)
         self.word_entry_field.pack(pady=PAD)
         self.word_entry_button.pack(pady=PAD)
+
+    def init_dispalyer(self):
+        pass
 
     def submit_word(self):
         print(self.enterred_text.get())
@@ -129,6 +139,4 @@ class GameDisplay():
 
 
 if __name__ == "__main__":
-    app_strings = AppStings("fr")
-    app_color = AppColors()
     test = AppWindow()
