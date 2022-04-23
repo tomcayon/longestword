@@ -1,5 +1,6 @@
-f1f1f1
-666b7f
-1d1d1d
-336851
-1cb472
+{
+"bright":"#f1f1f1",
+"grey":"#666b7f",
+"dark":"#1d1d1d",
+"accent-light":"#1cb472",
+"accent-dark":"#336851"}
