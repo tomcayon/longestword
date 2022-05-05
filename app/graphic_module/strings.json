@@ -1,0 +1,44 @@
+{
+"word_entry_label":{
+		"fr":"Entrer le mot le plus long ...",
+		"en":"Enter the longest word"},
+		
+"word_entry_label_word_enterred" : {
+		"fr":"Vous avez entré le mot :"},
+		
+"word_entry_submit":{
+		"fr":"Valider le mot"},
+		
+"word_entry_button_word_enterred" : {
+		"fr":"Mot validé"},
+		
+"title" : {
+		"fr":"Le mot le plus long"},
+		
+"author" : {
+		"fr":"Un jeu par les hommes daufin !"},
+		
+"add_consonnent" : {
+		"fr":"Ajouter une consonne"},
+		
+"add_vowel" : {
+		"fr":"Ajouter une voyelle"},
+		
+"enter_longer_word" : {
+		"fr":"Veuillez entrer un mot plus long"},
+		
+"enter_smaller_word" : {
+		"fr":"Veuillez entrer un mot plus court"},
+		
+"letters_displayer_label" : {
+		"fr":"Lettres tirées :"},
+		
+"instructions" : {
+		"fr":""" REGLES DU JEU :
+Selectionnez 9 lettres en appuyant sur les boutons consonnes ou voyelles. Attention : 2 voyelles minimum !
+Après cela, vous devez trouver le mot le lus long avec ces 9 lettres, puis le saisir.
+L'ordinateur va lui aussi chercher et vous donnera les solutions possibles."""},
+
+"solutions_label" : {
+		"fr":"Solutions :"},
+}

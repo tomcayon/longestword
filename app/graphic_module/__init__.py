@@ -2,48 +2,23 @@
 Graphic Module
 """
 
-import tkinter as tk
-import tkinter.ttk as ttk
-
-import os
-
-
-DIM = W,H = 1024,600
-
-PALETTE = "palette.txt"
-STRINGS = "strings.txt"
-
-HEADER_STYLE = ("Times New Roman",20)
-PAD = 5
-
-class AppStings():
-    def __init__(self,lang):
-        self.language = lang
-        self.string = eval(open(STRINGS,'r').read())
-
-
-    def get(self,name):
-        return self.string[name][self.language]
-
-class AppColors():
-    def __init__(self):
-        self.palette = eval(open(PALETTE,'r').read())
-
-    def get(self,name):
-        return self.palette[name]
-
+#import the constants AND the libraries as tk and os
+# the .[module_name] is because this is a file contained in this package
+from .app_constants import *
+from .game_display import GameDisplay
 
 class AppWindow():
-    def __init__(self):
+    def __init__(self,game_core):
         self.window = tk.Tk()
-
-        self.window.tk.call("source", os.getcwd()+"/themes/Azure-ttk-theme-main/"+"azure.tcl")
+        self.window.geometry("%ix%i"%(W,H))
+        self.game_display = GameDisplay(game_core)
+        
+        self.window.tk.call("source", PACKAGE_PATH+"/themes/Azure-ttk-theme-main/"+"azure.tcl")
         self.window.tk.call("set_theme", "dark")
 
-        #self.window.tk.call("source",os.getcwd()+"/themes/Forest-ttk-theme-master/forest-light.tcl")
-
         self.init_window()
-
+    
+    def start(self):
         self.window.mainloop()
 
     def init_window(self):
@@ -53,8 +28,6 @@ class AppWindow():
         self.frame_header = ttk.Frame(win)
         self.frame_content = ttk.Frame(win)
         self.frame_footer = ttk.Frame(win)
-
-        self.game_display = GameDisplay(self.frame_content)
 
         self.init_header()
         self.init_content()
@@ -67,68 +40,24 @@ class AppWindow():
     def init_header(self):
         head = self.frame_header
 
-        self.frame_header_content = {
+        #print(APP_COLOR.get("accent-light"))
 
-                "title" : ttk.Label(head,text=app_strings.get("title")),
-                "author" : ttk.Label(head,text=app_strings.get("author"))
+        """self.frame_header_content = {
+
+                "title" : ttk.Label(head,text=APP_STRINGS.get("title"),foreground=APP_COLOR.get("accent-light")),
+                "author" : ttk.Label(head,text=APP_STRINGS.get("author"))
 
                 }
 
         for i,element in enumerate(self.frame_header_content):
             self.frame_header_content [element].config(font=(HEADER_STYLE))
-            self.frame_header_content [element].grid(
-                    row = 0,
-                    column = i,
-                    padx = PADDING,
-                    pady = PADDING)
+            self.frame_header_content [element].pack(pady = PAD,side=tk.RIGHT)"""
+        
+        self.rules_message = tk.Message(head,text=APP_STRINGS.get("instructions"),justify=tk.CENTER)
+        self.rules_message.pack(pady=PAD,side=tk.LEFT)
 
     def init_content(self):
-        self.game_display.init_components()
+        self.game_display.init_components(self.frame_content)
 
     def init_footer(self):
         pass
-
-
-
-
-class GameDisplay():
-    def __init__(self,parent):
-        self.parent = parent
-
-    def init_components(self):
-        parent = self.parent
-
-        self.letter_selector = tk.Frame(parent)
-        self.word_entry = tk.Frame(parent)
-        self.solution_displayer = ttk.Frame(parent)
-
-        self.init_entry()
-
-        self.letter_selector.pack()
-        self.word_entry.pack()
-        self.solution_displayer.pack()
-
-    def init_entry(self):
-        self.enterred_text = tk.StringVar()
-
-        self.word_entry.config()
-
-        self.word_entry_label = ttk.Label(self.word_entry,text=app_strings.get("word_entry_label"))
-        self.word_entry_field = ttk.Entry(
-                self.word_entry,
-                textvariable=self.enterred_text)
-        self.word_entry_button= ttk.Button(self.word_entry,text=app_strings.get("word_entry_submit"),command=self.submit_word)
-
-        self.word_entry_label.pack(pady=PAD)
-        self.word_entry_field.pack(pady=PAD)
-        self.word_entry_button.pack(pady=PAD)
-
-    def submit_word(self):
-        print(self.enterred_text.get())
-
-
-
-if __name__ == "__main__":
-    app_strings = AppStings("fr")
-    app_color = AppColors()
-    test = AppWindow()
