@@ -112,6 +112,8 @@ class GameDisplay():
             messagebox.showerror(
                     "Action forbidden",
                     APP_STRINGS.get("word_not_possible"))
+                    
+            self.word_entry_field.delete(0,"end")
         else:
             self.game_core.submit_word(self.enterred_text.get(),self)
             
@@ -155,6 +157,12 @@ class GameDisplay():
                 cursor="X_cursor")
                 
     def display_solutions(self,list):
-        print(list)
         for i,el in enumerate(list):
             self.solution_displayer_listbox.insert(i,el)
+    
+    def show_reset(self):
+        tk.messagebox.showwarning("Warning",APP_STRINGS.get("reset_letters_warning"))
+        
+    def show_result_message(self,result_code,max_lenght):
+        msg_key = ("best_word","good_word","wrong_word")[result_code]
+        tk.Label(self.solution_displayer,text=APP_STRINGS.get(msg_key)).pack()
