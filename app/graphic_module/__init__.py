@@ -12,12 +12,12 @@ class AppWindow():
         self.window = tk.Tk()
         self.window.geometry("%ix%i"%(W,H))
         self.game_display = GameDisplay(game_core)
-        
+
         self.window.tk.call("source", PACKAGE_PATH+"/themes/Azure-ttk-theme-main/"+"azure.tcl")
         self.window.tk.call("set_theme", "dark")
 
         self.init_window()
-    
+
     def start(self):
         self.window.mainloop()
 
@@ -40,24 +40,24 @@ class AppWindow():
     def init_header(self):
         head = self.frame_header
 
-        #print(APP_COLOR.get("accent-light"))
+        self.header_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo.gif"))
+        self.header_logo = tk.Label(self.frame_header,image=self.header_logo_img)
+        self.header_logo.pack()
 
-        """self.frame_header_content = {
-
-                "title" : ttk.Label(head,text=APP_STRINGS.get("title"),foreground=APP_COLOR.get("accent-light")),
-                "author" : ttk.Label(head,text=APP_STRINGS.get("author"))
-
-                }
-
-        for i,element in enumerate(self.frame_header_content):
-            self.frame_header_content [element].config(font=(HEADER_STYLE))
-            self.frame_header_content [element].pack(pady = PAD,side=tk.RIGHT)"""
-        
         self.rules_message = tk.Message(head,text=APP_STRINGS.get("instructions"),justify=tk.CENTER)
-        self.rules_message.pack(pady=PAD,side=tk.LEFT)
+        self.rules_message.pack(pady=PAD)
+
+
 
     def init_content(self):
         self.game_display.init_components(self.frame_content)
 
     def init_footer(self):
-        pass
+        print(os.path.join(IMAGES_PATH,"logo.png"))
+        self.footer_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo.png"))
+        self.footer_logo = tk.Label(self.frame_footer,
+                image=self.footer_logo_img,
+                text=APP_STRINGS.get("author"),
+                compound="left",
+                font = HEADER_STYLE)
+        self.footer_logo.pack()
