@@ -40,7 +40,7 @@ class AppWindow():
     def init_header(self):
         head = self.frame_header
 
-        self.header_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo.gif"))
+        self.header_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo_game.gif"))
         self.header_logo = tk.Label(self.frame_header,image=self.header_logo_img)
         self.header_logo.pack()
 
@@ -53,8 +53,8 @@ class AppWindow():
         self.game_display.init_components(self.frame_content)
 
     def init_footer(self):
-        print(os.path.join(IMAGES_PATH,"logo.png"))
-        self.footer_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo.png"))
+        print(os.path.join(IMAGES_PATH,"logo_dolfin.png"))
+        self.footer_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo_dolfin.png"))
         self.footer_logo = tk.Label(self.frame_footer,
                 image=self.footer_logo_img,
                 text=APP_STRINGS.get("author"),
