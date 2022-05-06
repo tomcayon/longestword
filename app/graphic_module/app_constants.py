@@ -16,7 +16,7 @@ W,H = 1024,600
 PAD = 5
 
 PACKAGE_PATH = os.path.dirname(__file__)
-IMAGES_PATH = "/images/"
+IMAGES_PATH = os.path.join(PACKAGE_PATH,"images")
 
 PALETTE = "/palette.json"
 STRINGS = "/strings.json"
