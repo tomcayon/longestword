@@ -12,7 +12,7 @@ class WordsFinder() :
         mode = "r"
         words_files = {}
         for n in range(self.MIN_LENGTH,self.MAX_LENGTH+1,1):
-            # fill words files objects dictionary
+
             try :
                 words_files [n] = open(dico_path + "%i.txt"%(n), mode)
             except:
@@ -20,7 +20,7 @@ class WordsFinder() :
 
         letters = Multiset(letters)
         possible_words=[]
-        order=list(range(self.MAX_LENGTH,self.MIN_LENGTH,-1))
+        order=list(range(self.MAX_LENGTH,self.MIN_LENGTH-1,-1))
 
         for n in order:
 
@@ -31,20 +31,16 @@ class WordsFinder() :
                 if sliced_word.issubset(letters):
                     possible_words.append(word[:-1])
 
-        # for word in possible_words:
-        #     if len(possible_words[0])!=len(word):
-        #         remove(world)
-        
         return possible_words
-        
+
 class WordChecker():
     def __init__(self,letters):
         self.letters = letters
-        
+
     def is_word_possible(self,word):
         word = Multiset(word)
         letters = Multiset(self.letters)
-        
+
         return word.issubset(letters)
 
 if __name__=="__main__":
