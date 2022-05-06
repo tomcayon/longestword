@@ -5,7 +5,7 @@
 
 [Our Discord](https://discord.gg/tAggQPF7Vm)
 
-[**Website**](https://longestword.000webhostapp.com)
+[**Website**](https://longestword.000webhostapp.com) (Not compatible with Firefox)
 
 Authors :
 - [**Pixellgame**](https://github.com/Pixellgame) (Manager)
