@@ -28,10 +28,18 @@ class GameEngine():
         self.consonnent_cnt = 0
         
     def submit_word(self,word,game_display):
-        self.enterred_word = word
+        
         game_display.disable_entry()
-        game_display.display_solutions(word_module.WordsFinder().find_word(
-                os.getcwd()+"/dico/",self.letters))
+        game_display.display_solutions(self.solutions)
+        
+        if len(word)==len(self.solutions[0]) and word in self.solutions:
+            result_code = 0 #best word
+        elif word in self.solutions:
+            result_code = 1 #good word
+        else :
+            result_code = 2 #wrong word
+            
+        game_display.show_result_message(result_code,self.solutions[0])
         
     def add_consonnent(self,game_display):
         if self.consonnent_cnt < self.MAX_LENGTH - self.MIN_VOWEL_CNT:
@@ -48,10 +56,15 @@ class GameEngine():
         game_display.update_letters_displayer(self.letters)
         
         if len(self.letters) >= self.MAX_LENGTH:
-            game_display.disable_letter_selection()
-            game_display.show_entry()
-            
-        print(self.letters)
+            self.solutions = word_module.WordsFinder().find_word(
+                os.getcwd()+"/dico/",self.letters)
+            if len(self.solutions)==0:
+                self.letters = Multiset()
+                game.display.update_letter_selection(self.letters)
+                game.display.show_reset()
+            else :
+                game_display.disable_letter_selection()
+                game_display.show_entry()
         
     def get_min_lenght(self):
         return self.MIN_LENGTH
@@ -63,4 +76,4 @@ class GameEngine():
         return self.ALLOWED_LETTERS
         
     def is_word_possible(self,word):
-        return True
+        return word_module.WordChecker(self.letters).is_word_possible(word)
