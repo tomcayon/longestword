@@ -24,6 +24,7 @@ class AppWindow():
     def init_window(self):
         win = self.window
         self.window.config(padx=PAD,pady=PAD)
+        self.window.title(APP_STRINGS.get("win_title"))
 
         self.frame_header = ttk.Frame(win)
         self.frame_content = ttk.Frame(win)
