@@ -42,26 +42,25 @@ class GameEngine():
         game_display.show_result_message(result_code,self.solutions[0])
         
     def add_consonnent(self,game_display):
-        if self.consonnent_cnt < self.MAX_LENGTH - self.MIN_VOWEL_CNT:
-            self.add_letter(self.CONSONNENTS,game_display)
-            self.consonnent_cnt += 1
-        else:
+        self.add_letter(self.CONSONNENTS,game_display)
+        self.consonnent_cnt += 1
+        if self.consonnent_cnt > self.MAX_LENGTH - self.MIN_VOWEL_CNT:
             game_display.disable_consonnent_selection()
         
     def add_vowel(self,game_display):
         self.add_letter(self.VOWEL,game_display)
     
     def add_letter(self,letter_type,game_display):
-        self.letters.add(random.choice(letter_type))
-        game_display.update_letters_displayer(self.letters)
-        
-        if len(self.letters) >= self.MAX_LENGTH:
+        if len(self.letters)<self.MAX_LENGTH:
+            self.letters.add(random.choice(letter_type))
+            game_display.update_letters_displayer(self.letters)
+        if len(self.letters) == self.MAX_LENGTH:
             self.solutions = word_module.WordsFinder().find_word(
                 os.getcwd()+"/dico/",self.letters)
             if len(self.solutions)==0:
                 self.letters = Multiset()
-                game.display.update_letter_selection(self.letters)
-                game.display.show_reset()
+                game_display.update_letter_selection(self.letters)
+                game_display.show_reset()
             else :
                 game_display.disable_letter_selection()
                 game_display.show_entry()
