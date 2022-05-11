@@ -60,5 +60,13 @@ L'ordinateur va lui aussi chercher et vous donnera les solutions possibles."""},
 		"fr":"Ce mot est valide mais il n'est pas le meilleur mot."},
 
 "wrong_word" : {
-		"fr":"Ce mot ne fait pas partie des solutions"},
+		"fr":"Ce mot ne fait pas partie des solutions."},
+
+"longest_word" : {
+		"fr" : "Un des mots les plus longs est : {} ( {} lettres)"},
+		
+"restart_button" : {
+		"fr" : "Redemarrer une partie"},
+
 }
+

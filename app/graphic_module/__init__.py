@@ -48,13 +48,10 @@ class AppWindow():
         self.rules_message = tk.Message(head,text=APP_STRINGS.get("instructions"),justify=tk.CENTER)
         self.rules_message.pack(pady=PAD)
 
-
-
     def init_content(self):
         self.game_display.init_components(self.frame_content)
 
     def init_footer(self):
-        print(os.path.join(IMAGES_PATH,"logo_dolfin.png"))
         self.footer_logo_img=tk.PhotoImage(file=os.path.join(IMAGES_PATH,"logo_dolfin.png"))
         self.footer_logo = tk.Label(self.frame_footer,
                 image=self.footer_logo_img,

@@ -12,7 +12,7 @@ import os
 
 from .app_utils import * #the .app_utils is because this is a file contained in the package
 
-W,H = 1024,600
+W,H = 800,700
 PAD = 5
 
 PACKAGE_PATH = os.path.dirname(__file__)

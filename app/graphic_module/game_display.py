@@ -163,6 +163,10 @@ class GameDisplay():
     def show_reset(self):
         tk.messagebox.showwarning("Warning",APP_STRINGS.get("reset_letters_warning"))
         
-    def show_result_message(self,result_code,max_lenght):
+    def show_result_message(self,result_code,longest_word):
         msg_key = ("best_word","good_word","wrong_word")[result_code]
-        tk.Label(self.solution_displayer,text=APP_STRINGS.get(msg_key)).pack()
+        txt = APP_STRINGS.get(msg_key)+ " " + APP_STRINGS.get("longest_word").format(
+                longest_word,len(longest_word))
+        
+        tk.Label(self.solution_displayer,text=txt).pack()
+        tk.messagebox.showinfo("Info",txt)
