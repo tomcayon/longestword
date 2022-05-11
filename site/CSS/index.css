@@ -29,8 +29,8 @@ header{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); */
-    /* background: var(--accent-bright) no-repeat center center; */
-    background: linear-gradient(#336851, #1CB472) no-repeat center center;
+    background: var(--accent-bright) no-repeat center center;
+    /* background: linear-gradient(#336851, #1CB472) no-repeat center center; */
     background-size: cover;
     display: block;
     margin-top: 20%;
@@ -183,7 +183,8 @@ body{
     display: flex;
     align-items:center;
     justify-content: center;
-    background-color: var(--accent-dark);
+    /* background-color: var(--accent-dark); */
+    background: linear-gradient(#1CB472, #336851)
 }
 
 .credits:hover{
@@ -209,7 +210,7 @@ font-family: 'Poppins', sans-serif;
   text-align: left;
   line-height: 1.4em;
   background-color: var(--bright);
-  border-radius: 25px
+  border-radius: 25px;
 }
 .carte * {
   -webkit-box-sizing: border-box;
@@ -287,4 +288,5 @@ font-family: 'Poppins', sans-serif;
 .cartes{
     display: flex;
     margin: 0% 20%;
+    justify-content: center;
 }
