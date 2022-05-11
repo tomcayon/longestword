@@ -9,9 +9,11 @@ header,body,html{
     scroll-behavior: smooth;
 }
 
+
+
 :root{
     --accent-bright:#1CB472;
-    --accent-dark:#1CB472;
+    --accent-dark:#336851;
     --dark:#424242;
     --grey:#727272;
     --bright:#F1F1F1;
@@ -27,14 +29,17 @@ header{
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%); */
-    background: var(--accent-bright) no-repeat center center;
+    /* background: var(--accent-bright) no-repeat center center; */
+    background: linear-gradient(#336851, #1CB472) no-repeat center center;
     background-size: cover;
     display: block;
     margin-top: 20%;
 }
 
+
 body{
     background-color: var(--accent-bright);
+    /* background: linear-gradient(var(--accent-dark), var(--accent-bright)); */
     color: var(--bright);
 }
 
@@ -79,17 +84,19 @@ body{
 
 .text1{
     font-family: 'Poppins', sans-serif;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
     font-size: 20px;
     text-align: justify;
 }
 
 .img1{
-    width: 25%;
+    /* width: 25%; */
+    max-width: 30%;
     margin-right: 15%;
     float: right;
     border-radius: 20px;
+
 }
 
 .about1{
@@ -112,15 +119,16 @@ body{
 
 .text2{
     font-family: 'Poppins', sans-serif;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-right: 15%;
     font-size: 20px;
     text-align: justify;
 }
 
 .img2{
-    width: 25%;
-    margin-left: 20%;
+    /* width: 25%; */
+    max-width: 30%;
+    margin-left: 15%;
     float: right;
     border-radius: 15px;
 }
@@ -186,4 +194,97 @@ body{
     text-decoration: none;
     color: var(--bright);
     font-family: 'Poppins', sans-serif;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,600);
+.carte {
+font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: black;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: var(--bright);
+  border-radius: 25px
+}
+.carte * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  border-radius: 25px;
+}
+.carte img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.carte figcaption {
+  width: 100%;
+  background-color: var(--bright);
+  padding: 25px;
+  position: relative;
+}
+.carte figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent #F1F1F1;
+}
+.carte figcaption a {
+  padding: 5px;
+  border: 1px solid #424242;
+  color: #424242;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.carte figcaption a:hover {
+  opacity: 1;
+}
+.carte .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 25px;
+  z-index: 1;
+  max-width: 90px;
+  opacity: 1;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.carte h2 {
+  margin: 0 0 5px;
+  font-weight: 300;
+}
+.carte h2 span {
+  display: block;
+  font-size: 0.5em;
+  color: var(--accent-bright);
+}
+.carte p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.cartes{
+    display: flex;
+    margin: 0% 20%;
 }
